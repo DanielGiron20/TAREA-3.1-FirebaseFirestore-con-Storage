@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "494949252408",
+    "project_id": "gestortask-1569a",
+    "storage_bucket": "gestortask-1569a.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:494949252408:android:5dd47fb6e33e351f1b55cd",
+        "android_client_info": {
+          "package_name": "com.girondaniel1442003"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBo84hO6DkJUVWRjYAQa0ifN50egLqwJL0"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
