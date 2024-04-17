@@ -2,8 +2,7 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'firebase_options.dart';
-import 'firebase.dart';
-import 'ingreso.dart'; // Importa el archivo de la pantalla de ingreso
+import 'ingreso.dart'; 
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -39,7 +38,7 @@ class Home extends StatelessWidget {
           IconButton(
             icon: Icon(Icons.add),
             onPressed: () {
-              Navigator.pushNamed(context, '/ingreso'); // Abre la pantalla de ingreso al presionar el botón
+              Navigator.pushNamed(context, '/ingreso'); 
             },
           ),
         ],
@@ -57,7 +56,7 @@ class Home extends StatelessWidget {
             return ListView.builder(
               itemCount: snapshot.data!.docs.length,
               itemBuilder: (context, index) {
-                var bandData = snapshot.data!.docs[index].data() as Map<String, dynamic>?; // Convertir a Map<String, dynamic>
+                var bandData = snapshot.data!.docs[index].data() as Map<String, dynamic>?; 
                 return GestureDetector(
                   onTap: () {
                     incrementVote(snapshot.data!.docs[index].id);
@@ -67,10 +66,10 @@ class Home extends StatelessWidget {
                     subtitle: Text('${bandData?['album'] ?? ''} (${bandData?['year'] ?? ''})'),
                     trailing: Text('Votos: ${bandData?['votes'] ?? ''}'),
                     leading: Image.network(
-                      bandData?['imageUrl'] ?? '', // Obtener la URL de la imagen desde Firestore
-                      width: 50, // Ajustar el ancho de la imagen según sea necesario
-                      height: 50, // Ajustar la altura de la imagen según sea necesario
-                      fit: BoxFit.cover, // Ajustar la forma en que se ajusta la imagen dentro del widget
+                      bandData?['imageUrl'] ?? '', 
+                      width: 50, 
+                      height: 50,
+                      fit: BoxFit.cover, 
                     ),
                   ),
                 );
