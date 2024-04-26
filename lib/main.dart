@@ -72,7 +72,12 @@ class Home extends StatelessWidget {
                             height: 50, // Ajustar la altura de la imagen según sea necesario
                             fit: BoxFit.cover, // Ajustar la forma en que se ajusta la imagen dentro del widget
                           )
-                        : Container(), // Si no hay URL de imagen, muestra un contenedor vacío
+                        : Image.asset(
+          'assets/images/404.png',
+          width: 50,
+          height: 50, 
+          fit: BoxFit.cover,
+        ), 
                   ),
                 );
               },

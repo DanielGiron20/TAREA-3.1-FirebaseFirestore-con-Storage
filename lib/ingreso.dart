@@ -1,5 +1,4 @@
 import 'dart:io';
-
 import 'package:flutter/material.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
@@ -19,22 +18,17 @@ class _AddBandScreenState extends State<AddBandScreen> {
   // Función para agregar una banda a Firestore
   Future<void> _addBand() async {
     // Verifica si se ha seleccionado una imagen
-    if (_imageFile == null) {
-      ScaffoldMessenger.of(context).showSnackBar(
-        SnackBar(content: Text('Debes seleccionar una imagen')),
-      );
-      return;
+    String? imageUrl;
+    
+    if (_imageFile != null) {
+      imageUrl = await uploadImage(_imageFile!);
     }
-
-    // Sube la imagen a Firebase Storage y obtén su URL de descarga
-    String? imageUrl = await uploadImage(_imageFile!);
 
     try {
       // Validamos que los campos no estén vacíos
       if (_nameController.text.isEmpty ||
           _albumController.text.isEmpty ||
-          _yearController.text.isEmpty ||
-          imageUrl == null) {
+          _yearController.text.isEmpty ) {
         ScaffoldMessenger.of(context).showSnackBar(
           SnackBar(content: Text('Todos los campos son obligatorios')),
         );
